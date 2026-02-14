@@ -1,1 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nettoyage de Baskets - Dijon | Service Pro & Rapide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .service-card h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .service-card .price {
+            font-size: 1.8rem;
+            color: #667eea;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        .about {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+            border-radius: 10px;
+        }
+        .contact h2 {
+            color: white;
+            border-bottom: 3px solid white;
+        }
+        .contact-info {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            margin-top: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .instagram-link {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+        .instagram-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+         @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .header p {
+                font-size: 1rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+            .service-card .price {
+                font-size: 1.5rem;
+            }
+            .contact {
+                padding: 2rem 1rem;
+            }
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            .about {
+                padding: 1.5rem;
+            }
+        }
+        
+    /* Mode Sombre (Dark Mode) */
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
 
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-bottom: 1px solid #444;
+        }
+
+        .container {
+            background-color: #1a1a1a;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-bottom: 1px solid #444;
+        }
+
+        .hero-title, .hero-subtitle {
+            color: #e0e0e0;
+        }
+
+        .section {
+            background-color: #1a1a1a;
+        }
+
+        .section h2 {
+            color: #e0e0e0;
+            border-bottom-color: #555;
+        }
+
+        .service-card {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            color: #e0e0e0;
+        }
+
+        .service-card h3 {
+            color: #fff;
+        }
+
+        .service-card p {
+            color: #b0b0b0;
+        }
+
+        .price {
+            color: #4db8ff;
+            background-color: #333;
+        }
+
+        .about {
+            background-color: #2a2a2a;
+            color: #b0b0b0;
+            border-left: 4px solid #4db8ff;
+        }
+
+        .about h3 {
+            color: #e0e0e0;
+        }
+
+        .about strong {
+            color: #fff;
+        }
+
+        .about ul li {
+            color: #b0b0b0;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-top: 1px solid #444;
+        }
+
+        .contact-info {
+            color: #b0b0b0;
+        }
+
+        .contact-info p {
+            color: #b0b0b0;
+        }
+
+        .contact-info strong {
+            color: #e0e0e0;
+        }
+
+        .contact-info a {
+            color: #4db8ff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: #66d9ff;
+        }
+
+        .btn {
+            background-color: #4db8ff;
+            color: #000;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #66d9ff;
+        }
+
+        footer {
+            background-color: #1a1a1a !important;
+            border-top: 1px solid #444;
+            color: #b0b0b0 !important;
+        }
+    }
+
+    /* Mode Sombre Manuel avec Bouton Toggle */
+    body.dark-mode {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+    }
+
+    body.dark-mode .header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        border-bottom: 1px solid #444;
+    }
+
+    body.dark-mode .section h2 {
+        color: #e0e0e0;
+    }
+
+    body.dark-mode .service-card {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+        border: 1px solid #444;
+    }
+
+    body.dark-mode .price {
+        background-color: #333;
+        color: #4db8ff;
+    }
+
+    body.dark-mode footer {
+        background-color: #1a1a1a !important;
+        color: #b0b0b0 !important;
+        border-top: 1px solid #444;
+    }
+
+    .dark-mode-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #4db8ff;
+        color: #000;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .dark-mode-toggle:hover {
+        background-color: #66d9ff;
+    }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>👟 Clean tes Pompes👟</h1>
+        <p>Rénovation et Nettoyage Professionnel de Sneakers à Dijon</p>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>Nos Services <a href="tel:+33745171880" style="color: #667eea; text-decoration: none; font-size: 1.5rem;">📱</a></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>✨ Nettoyage Classique</h3>
+                    <p>Nettoyage complet de vos baskets : dessus, lacets, semelles. Redonner éclat et fraîcheur à vos sneakers.</p>
+                    <div class="price">À partir de 15€</div>
+                     <img src="https://media.gqmagazine.fr/photos/663a0cb2eeb9a2fda8341c6d/master/pass/Best-sneakers-2024-b.jpg
+" alt="Service1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-top: 1rem;">
+                    
+                </div>
+                <div class="service-card">
+                    <h3>💎 Rénovation Premium</h3>
+                    <p>Restauration en profondeur : blanchiment semelles, traitement anti-taches, protection longue durée.</p>
+                    <div class="price">À partir de 25€</div>
+                     <img src="https://static.ftshp.digital/img/p/6/4/7/8/9/64789-full_product.jpg
+" alt="Service 2" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-top: 1rem;">
+                    
+                </div>
+                <div class="service-card">
+                    <h3>⚡ Nettoyage Express</h3>
+                    <p>Service rapide pour un nettoyage d'urgence. Résultat pro en 24h chrono.</p>
+                    <div class="price">À partir de 20€</div>
+                     <img src="https://cdn.lesitedelasneaker.com/wp-content/images/2023/01/ycmc-new-balance-990v3-m990s03-pic08-1100x772.jpg
+" alt="Service 3" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-top: 1rem;">
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Pourquoi Nous Choisir ?</h2>
+            <div class="about">
+                <h3>Expertise et Passion</h3>
+                <p><strong>Passionné de sneakers</strong>, je traite chaque paire avec le plus grand soin. Mes techniques professionnelles garantissent des résultats impeccables sans abîmer vos baskets.</p>
+                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                    <li>✅ Produits professionnels adaptés à chaque matière</li>
+                    <li>✅ Résultats garantis ou remboursé</li>
+                    <li>✅ Service rapide : 24-48h en moyenne</li>
+                    <li>✅ Toutes marques : Nike, Adidas, Jordan, Yeezy, etc.</li>
+                    <li>✅ Zone Dijon et alentours</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="contact">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <div class="contact-info">
+                <p>Pour un devis ou une prise de rendez-vous :</p>
+                <p><strong>📧 Email :</strong> <a href="mailto:meso.multiservices@gmail.com">meso.multiservices@gmail.com</a></p>
+                <p><strong>📱 WhatsApp :</strong> <a href="https://wa.me/33745171880">+33 7 45 17 18 80</a></p>
+                <p><strong>📸 Instagram :</strong> <a href="https://www.instagram.com/clean_tes_pompes/" target="_blank" class="instagram-link">@clean_tes_pompes</a></p>
+                <p><strong>📍 Zone :</strong> Dijon et alentours (21)</p>
+                <a href="#" class="btn">Demander un Devis Gratuit</a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; background: #333; color: white;">
+        <p>&copy; 2026 Nettoyage de Baskets Dijon - Tous droits réservés</p>
+    </footer>
+    
+    <!-- Bouton Mode Sombre -->
+    <button class="dark-mode-toggle" id="darkModeBtn">🌙</button>
+
+    <script>
+        // Mode sombre automatique basé sur les préférences système
+        const darkModeBtn = document.getElementById('darkModeBtn');
+        const body = document.body;
+
+        // Vérifie si l'utilisateur a une préférence sauvegardée
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeBtn.textContent = '☀️';
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Active le mode sombre si le système le préfère
+            body.classList.add('dark-mode');
+            darkModeBtn.textContent = '☀️';
+        }
+
+        // Écouteur de clic sur le bouton
+        darkModeBtn.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeBtn.textContent = '☀️';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeBtn.textContent = '🌙';
+            }
+        });
+
+        // Détecte les changements de préférence système
+        if (window.matchMedia) {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                if (e.matches && localStorage.getItem('darkMode') !== 'disabled') {
+                    body.classList.add('dark-mode');
+                    darkModeBtn.textContent = '☀️';
+                } else if (!e.matches && localStorage.getItem('darkMode') !== 'enabled') {
+                    body.classList.remove('dark-mode');
+                    darkModeBtn.textContent = '🌙';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
