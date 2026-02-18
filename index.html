@@ -20,6 +20,7 @@
             overflow-x: hidden;
         }
 
+        /* Effet de particules */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -28,6 +29,7 @@
             background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
         }
 
+        /* Header avec vibe underground */
         .header {
             height: 100vh;
             position: relative;
@@ -143,6 +145,7 @@
             100% { opacity: 0; transform: rotate(45deg) translate(20px, 20px); }
         }
 
+        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -199,6 +202,7 @@
             width: 100%;
         }
 
+        /* Container */
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -207,6 +211,7 @@
             z-index: 1;
         }
 
+        /* Section découverte */
         .discover-section {
             margin-bottom: 5rem;
         }
@@ -241,6 +246,7 @@
             font-weight: 600;
         }
 
+        /* Filtres */
         .filters {
             display: flex;
             gap: 1rem;
@@ -265,6 +271,7 @@
             border-color: transparent;
         }
 
+        /* Grille des artistes émergents */
         .artists-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -378,6 +385,7 @@
             color: #000;
         }
 
+        /* Section vidéos (clips émergents) */
         .videos-section {
             background: linear-gradient(135deg, rgba(0,255,135,0.05) 0%, rgba(96,239,255,0.05) 100%);
             border-radius: 30px;
@@ -473,6 +481,7 @@
             margin-bottom: 0.8rem;
         }
 
+        /* Système de likes */
         .like-system {
             display: flex;
             align-items: center;
@@ -511,6 +520,7 @@
             color: #00ff87;
         }
 
+        /* Section buzz */
         .buzz-section {
             margin: 4rem 0;
         }
@@ -553,6 +563,7 @@
             font-size: 0.9rem;
         }
 
+        /* Formulaire d'ajout */
         .form-section {
             background: rgba(255,255,255,0.02);
             border-radius: 30px;
@@ -611,6 +622,7 @@
             box-shadow: 0 10px 30px rgba(0,255,135,0.3);
         }
 
+        /* MODAL DE CONNEXION ADMIN */
         .admin-login-modal {
             position: fixed;
             top: 0;
@@ -691,6 +703,7 @@
             display: block;
         }
 
+        /* Bouton Admin Flottant */
         .admin-float-btn {
             position: fixed;
             bottom: 30px;
@@ -720,6 +733,7 @@
             color: white;
         }
 
+        /* Modal Admin Principal */
         .admin-modal {
             position: fixed;
             top: 0;
@@ -738,7 +752,7 @@
         }
 
         .admin-modal-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 2rem auto;
             padding: 2rem;
         }
@@ -753,7 +767,7 @@
         }
 
         .admin-modal-header h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #00ff87;
         }
 
@@ -770,6 +784,7 @@
             display: flex;
             gap: 1rem;
             margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
         .admin-tab {
@@ -797,11 +812,41 @@
             border-radius: 20px;
             padding: 2rem;
             border: 1px solid rgba(0,255,135,0.2);
+            margin-bottom: 2rem;
         }
 
+        /* Dashboard Stats */
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(0,255,135,0.1);
+            border: 1px solid #00ff87;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 1rem;
+            color: #00ff87;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        /* Gestion des artistes */
         .admin-artists-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 1.5rem;
         }
 
@@ -820,7 +865,7 @@
         }
 
         .admin-artist-header h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         .admin-btn {
@@ -831,7 +876,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s;
-            margin-left: 0.5rem;
+            margin-left: 0.3rem;
         }
 
         .admin-btn:hover {
@@ -845,18 +890,29 @@
             color: white;
         }
 
+        .admin-btn.primary {
+            background: #00ff87;
+            color: #000;
+            border: none;
+            padding: 0.8rem 1.5rem;
+        }
+
         .admin-video-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.5rem;
+            padding: 0.8rem;
             background: rgba(255,255,255,0.05);
-            border-radius: 5px;
+            border-radius: 8px;
             margin-bottom: 0.5rem;
         }
 
         .admin-video-info {
             flex: 1;
+        }
+
+        .admin-video-info strong {
+            color: #fff;
         }
 
         .admin-video-info small {
@@ -879,7 +935,8 @@
             background: rgba(0,255,135,0.1);
         }
 
-        .video-modal {
+        /* Modal d'édition */
+        .edit-modal {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -894,12 +951,18 @@
             max-width: 500px;
         }
 
-        .video-modal.active {
+        .edit-modal.active {
             display: block;
         }
 
-        .video-modal input,
-        .video-modal select {
+        .edit-modal h3 {
+            color: #00ff87;
+            margin-bottom: 1.5rem;
+        }
+
+        .edit-modal input,
+        .edit-modal select,
+        .edit-modal textarea {
             width: 100%;
             padding: 1rem;
             margin-bottom: 1rem;
@@ -907,6 +970,11 @@
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 8px;
             color: #fff;
+        }
+
+        .edit-modal textarea {
+            min-height: 100px;
+            resize: vertical;
         }
 
         .modal-buttons {
@@ -933,6 +1001,7 @@
             color: #fff;
         }
 
+        /* Footer */
         .footer {
             background: #000;
             padding: 3rem;
@@ -963,6 +1032,7 @@
             color: #00ff87;
         }
 
+        /* Toast */
         .toast {
             position: fixed;
             bottom: 100px;
@@ -981,6 +1051,7 @@
             transform: translateX(0);
         }
 
+        /* Loader */
         .loader {
             position: fixed;
             top: 0;
@@ -1013,10 +1084,12 @@
             to { transform: rotate(360deg); }
         }
 
+        /* Responsive */
         @media (max-width: 1024px) {
             .header h1 { font-size: 3.5rem; }
             .buzz-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-content { grid-template-columns: 1fr; }
+            .stats-dashboard { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -1025,6 +1098,7 @@
             .section-title { font-size: 2rem; }
             .videos-grid { grid-template-columns: 1fr; }
             .buzz-grid { grid-template-columns: 1fr; }
+            .stats-dashboard { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1053,61 +1127,128 @@
     <div class="admin-modal" id="adminModal">
         <div class="admin-modal-content">
             <div class="admin-modal-header">
-                <h2>⚡ PANEL ADMINISTRATEUR</h2>
+                <h2>⚡ PANEL D'ADMINISTRATION</h2>
                 <button class="close-admin" onclick="closeAdminModal()">×</button>
             </div>
 
+            <!-- Dashboard Stats -->
+            <div class="stats-dashboard" id="adminDashboard">
+                <div class="stat-card">
+                    <h3>Artistes</h3>
+                    <div class="value" id="adminStatArtistes">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Clips</h3>
+                    <div class="value" id="adminStatClips">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Likes</h3>
+                    <div class="value" id="adminStatLikes">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Vues</h3>
+                    <div class="value" id="adminStatVues">0</div>
+                </div>
+            </div>
+
+            <!-- Onglets -->
             <div class="admin-tabs">
-                <button class="admin-tab active" onclick="switchAdminTab('artists')">Artistes</button>
-                <button class="admin-tab" onclick="switchAdminTab('videos')">Tous les clips</button>
-                <button class="admin-tab" onclick="switchAdminTab('stats')">Statistiques</button>
+                <button class="admin-tab active" onclick="switchAdminTab('artists')">🎤 Artistes</button>
+                <button class="admin-tab" onclick="switchAdminTab('videos')">🎥 Clips</button>
+                <button class="admin-tab" onclick="switchAdminTab('settings')">⚙️ Paramètres</button>
             </div>
 
             <!-- Panel Artistes -->
             <div class="admin-panel" id="adminArtistsPanel">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
                     <h3>Gestion des artistes</h3>
-                    <button class="admin-btn" onclick="ajouterNouvelArtiste()">+ Nouvel artiste</button>
+                    <button class="admin-btn primary" onclick="openEditArtistModal(null)">+ Nouvel artiste</button>
                 </div>
                 <div class="admin-artists-grid" id="adminArtistsList"></div>
             </div>
 
             <!-- Panel Tous les clips -->
             <div class="admin-panel" id="adminVideosPanel" style="display: none;">
-                <h3 style="margin-bottom: 1rem;">Tous les clips</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h3>Gestion des clips</h3>
+                    <button class="admin-btn primary" onclick="openAddVideoModal(null)">+ Nouveau clip</button>
+                </div>
                 <div class="admin-artists-grid" id="adminAllVideosList"></div>
             </div>
 
-            <!-- Panel Statistiques -->
-            <div class="admin-panel" id="adminStatsPanel" style="display: none;">
-                <h3 style="margin-bottom: 2rem;">Statistiques de la plateforme</h3>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
-                    <div style="background: rgba(0,255,135,0.1); padding: 2rem; border-radius: 15px; text-align: center;">
-                        <div style="font-size: 2.5rem; font-weight: 800; color: #00ff87;" id="statArtistes">0</div>
-                        <div>Artistes</div>
+            <!-- Panel Paramètres -->
+            <div class="admin-panel" id="adminSettingsPanel" style="display: none;">
+                <h3 style="margin-bottom: 2rem;">Paramètres du site</h3>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #00ff87; margin-bottom: 1rem;">Code d'accès admin</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="text" id="newAdminCode" placeholder="Nouveau code (4 chiffres)" maxlength="4" style="flex: 1; padding: 1rem; background: rgba(255,255,255,0.1); border: 1px solid #00ff87; border-radius: 8px; color: #fff;">
+                        <button class="admin-btn primary" onclick="changeAdminCode()">Changer le code</button>
                     </div>
-                    <div style="background: rgba(0,255,135,0.1); padding: 2rem; border-radius: 15px; text-align: center;">
-                        <div style="font-size: 2.5rem; font-weight: 800; color: #00ff87;" id="statClips">0</div>
-                        <div>Clips</div>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #00ff87; margin-bottom: 1rem;">Titre du site</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="text" id="siteTitle" placeholder="Titre du site" style="flex: 1; padding: 1rem; background: rgba(255,255,255,0.1); border: 1px solid #00ff87; border-radius: 8px; color: #fff;">
+                        <button class="admin-btn primary" onclick="changeSiteTitle()">Mettre à jour</button>
                     </div>
-                    <div style="background: rgba(0,255,135,0.1); padding: 2rem; border-radius: 15px; text-align: center;">
-                        <div style="font-size: 2.5rem; font-weight: 800; color: #00ff87;" id="statLikes">0</div>
-                        <div>Likes</div>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #00ff87; margin-bottom: 1rem;">Slogan</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="text" id="siteSlogan" placeholder="Slogan du site" style="flex: 1; padding: 1rem; background: rgba(255,255,255,0.1); border: 1px solid #00ff87; border-radius: 8px; color: #fff;">
+                        <button class="admin-btn primary" onclick="changeSiteSlogan()">Mettre à jour</button>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #00ff87; margin-bottom: 1rem;">Actions globales</h4>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="admin-btn" onclick="resetAllLikes()" style="background: #ff4444; border-color: #ff4444; color: white;">Réinitialiser tous les likes</button>
+                        <button class="admin-btn" onclick="exportData()">📥 Exporter les données</button>
+                        <button class="admin-btn" onclick="importData()">📤 Importer des données</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal d'ajout/modification de vidéo -->
-    <div class="video-modal" id="videoModal">
-        <h3 style="color: #00ff87; margin-bottom: 1.5rem;" id="videoModalTitle">Ajouter un clip</h3>
-        <input type="hidden" id="currentArtistId">
-        <input type="hidden" id="currentVideoId">
+    <!-- Modal d'édition d'artiste -->
+    <div class="edit-modal" id="artistEditModal">
+        <h3 id="artistModalTitle">Ajouter un artiste</h3>
+        <input type="hidden" id="editArtistId">
         
-        <input type="text" id="videoTitle" placeholder="Titre du clip">
-        <input type="url" id="videoUrl" placeholder="URL YouTube (ex: https://youtu.be/...)">
-        <select id="videoArtistSelect"></select>
+        <input type="text" id="editArtistNom" placeholder="Nom de l'artiste">
+        <input type="text" id="editArtistRegion" placeholder="Région / Ville">
+        <textarea id="editArtistBio" placeholder="Biographie"></textarea>
+        <input type="url" id="editArtistImage" placeholder="URL de la photo">
+        <input type="url" id="editArtistSoundcloud" placeholder="Lien SoundCloud">
+        <select id="editArtistGenre">
+            <option>Rap</option>
+            <option>Drill</option>
+            <option>Cloud rap</option>
+            <option>Trap</option>
+            <option>UK Drill</option>
+        </select>
+        
+        <div class="modal-buttons">
+            <button class="modal-btn save" onclick="saveArtist()">Enregistrer</button>
+            <button class="modal-btn cancel" onclick="closeArtistModal()">Annuler</button>
+        </div>
+    </div>
+
+    <!-- Modal d'édition de clip -->
+    <div class="edit-modal" id="videoEditModal">
+        <h3 id="videoModalTitle">Ajouter un clip</h3>
+        <input type="hidden" id="editVideoArtistId">
+        <input type="hidden" id="editVideoId">
+        
+        <input type="text" id="editVideoTitre" placeholder="Titre du clip">
+        <input type="url" id="editVideoUrl" placeholder="URL YouTube (ex: https://youtu.be/...)">
+        <select id="editVideoArtistSelect"></select>
         
         <div class="modal-buttons">
             <button class="modal-btn save" onclick="saveVideo()">Enregistrer</button>
@@ -1120,7 +1261,7 @@
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="logo">RAP ÉMERGENT</div>
+        <div class="logo" id="siteLogo">RAP ÉMERGENT</div>
         <div class="nav-links">
             <a href="#accueil">Accueil</a>
             <a href="#decouverte">Découverte</a>
@@ -1137,8 +1278,8 @@
         </video>
         <div class="header-content">
             <span class="badge">🔊 NOUVELLE GARDE</span>
-            <h1>LA RELÈVE</h1>
-            <p>Les rappeurs qui font vibrer la scène underground française. Découvre les pépites avant tout le monde.</p>
+            <h1 id="mainTitle">LA RELÈVE</h1>
+            <p id="mainSlogan">Les rappeurs qui font vibrer la scène underground française. Découvre les pépites avant tout le monde.</p>
             <div class="stats-mini">
                 <div class="stat-item">
                     <div class="stat-number" id="publicStatArtistes">0</div>
@@ -1262,7 +1403,9 @@
 
     <script>
         // ==================== CONFIGURATION ====================
-        const ADMIN_CODE = "2024"; // Code admin (change-le si tu veux)
+        let ADMIN_CODE = localStorage.getItem('adminCode') || "2024";
+        let SITE_TITLE = localStorage.getItem('siteTitle') || "LA RELÈVE";
+        let SITE_SLOGAN = localStorage.getItem('siteSlogan') || "Les rappeurs qui font vibrer la scène underground française. Découvre les pépites avant tout le monde.";
         
         // ==================== PARTICULES ====================
         particlesJS('particles-js', {
@@ -1287,10 +1430,10 @@
             }
         });
 
-        // ==================== BASE DE DONNÉES LOCALE (localStorage) ====================
+        // ==================== BASE DE DONNÉES ====================
         let rappeurs = [];
 
-        // Charger les données depuis localStorage
+        // Charger les données
         function chargerDonnees() {
             const saved = localStorage.getItem('rappeurs');
             if (saved) {
@@ -1343,19 +1486,23 @@
                 sauvegarderDonnees();
             }
             
+            // Appliquer les paramètres
+            document.getElementById('mainTitle').textContent = SITE_TITLE;
+            document.getElementById('mainSlogan').textContent = SITE_SLOGAN;
+            
             // Mettre à jour l'affichage
             afficherArtistes();
             afficherBuzz();
             afficherVideos();
             updateStats();
             
-            // Cacher le loader
             document.getElementById('loader').classList.add('hidden');
         }
 
-        // Sauvegarder dans localStorage
+        // Sauvegarder
         function sauvegarderDonnees() {
             localStorage.setItem('rappeurs', JSON.stringify(rappeurs));
+            updateStats();
         }
 
         // ==================== VARIABLES ====================
@@ -1470,6 +1617,23 @@
             afficherArtistes();
         }
 
+        // ==================== STATISTIQUES ====================
+        function updateStats() {
+            const totalArtistes = rappeurs.length;
+            const totalClips = rappeurs.reduce((acc, r) => acc + r.videos.length, 0);
+            const totalLikes = rappeurs.reduce((acc, r) => acc + r.videos.reduce((sum, v) => sum + v.likes, 0), 0);
+            const totalVues = totalLikes * 10; // Approximation
+            
+            document.getElementById('publicStatArtistes').textContent = totalArtistes;
+            document.getElementById('publicStatClips').textContent = totalClips;
+            document.getElementById('publicStatLikes').textContent = totalLikes.toLocaleString();
+            
+            document.getElementById('adminStatArtistes').textContent = totalArtistes;
+            document.getElementById('adminStatClips').textContent = totalClips;
+            document.getElementById('adminStatLikes').textContent = totalLikes.toLocaleString();
+            document.getElementById('adminStatVues').textContent = totalVues.toLocaleString();
+        }
+
         // ==================== FONCTIONS ADMIN ====================
         function showLoginModal() {
             document.getElementById('adminLoginModal').classList.add('active');
@@ -1491,6 +1655,11 @@
             document.getElementById('adminModal').classList.add('active');
             document.getElementById('adminToggle').classList.add('active');
             afficherAdminArtistes();
+            afficherAdminVideos();
+            
+            // Remplir les champs de paramètres
+            document.getElementById('siteTitle').value = SITE_TITLE;
+            document.getElementById('siteSlogan').value = SITE_SLOGAN;
         }
 
         function closeAdminModal() {
@@ -1504,12 +1673,10 @@
             
             document.getElementById('adminArtistsPanel').style.display = tab === 'artists' ? 'block' : 'none';
             document.getElementById('adminVideosPanel').style.display = tab === 'videos' ? 'block' : 'none';
-            document.getElementById('adminStatsPanel').style.display = tab === 'stats' ? 'block' : 'none';
-            
-            if (tab === 'artists') afficherAdminArtistes();
-            if (tab === 'videos') afficherAdminVideos();
+            document.getElementById('adminSettingsPanel').style.display = tab === 'settings' ? 'block' : 'none';
         }
 
+        // ==================== GESTION DES ARTISTES ====================
         function afficherAdminArtistes() {
             const list = document.getElementById('adminArtistsList');
             list.innerHTML = '';
@@ -1537,7 +1704,7 @@
                     <div class="admin-artist-header">
                         <h3>${rappeur.nom}</h3>
                         <div>
-                            <button class="admin-btn" onclick="editArtist(${rappeur.id})">✏️</button>
+                            <button class="admin-btn" onclick="openEditArtistModal(${rappeur.id})">✏️</button>
                             <button class="admin-btn delete" onclick="deleteArtist(${rappeur.id})">🗑️</button>
                         </div>
                     </div>
@@ -1551,6 +1718,97 @@
             });
         }
 
+        function openEditArtistModal(artistId) {
+            const modal = document.getElementById('artistEditModal');
+            document.getElementById('artistModalTitle').textContent = artistId ? 'Modifier l\'artiste' : 'Ajouter un artiste';
+            
+            if (artistId) {
+                const rappeur = rappeurs.find(r => r.id === artistId);
+                document.getElementById('editArtistId').value = artistId;
+                document.getElementById('editArtistNom').value = rappeur.nom;
+                document.getElementById('editArtistRegion').value = rappeur.region;
+                document.getElementById('editArtistBio').value = rappeur.bio;
+                document.getElementById('editArtistImage').value = rappeur.image;
+                document.getElementById('editArtistSoundcloud').value = rappeur.soundcloud || '';
+                document.getElementById('editArtistGenre').value = rappeur.genre;
+            } else {
+                document.getElementById('editArtistId').value = '';
+                document.getElementById('editArtistNom').value = '';
+                document.getElementById('editArtistRegion').value = '';
+                document.getElementById('editArtistBio').value = '';
+                document.getElementById('editArtistImage').value = '';
+                document.getElementById('editArtistSoundcloud').value = '';
+                document.getElementById('editArtistGenre').value = 'Rap';
+            }
+            
+            modal.classList.add('active');
+        }
+
+        function saveArtist() {
+            const id = document.getElementById('editArtistId').value;
+            const nom = document.getElementById('editArtistNom').value;
+            const region = document.getElementById('editArtistRegion').value;
+            const bio = document.getElementById('editArtistBio').value;
+            const image = document.getElementById('editArtistImage').value;
+            const soundcloud = document.getElementById('editArtistSoundcloud').value;
+            const genre = document.getElementById('editArtistGenre').value;
+
+            if (!nom || !region || !bio || !image) {
+                showToast('Veuillez remplir tous les champs');
+                return;
+            }
+
+            if (id) {
+                // Modification
+                const rappeur = rappeurs.find(r => r.id == id);
+                rappeur.nom = nom;
+                rappeur.region = region;
+                rappeur.bio = bio;
+                rappeur.image = image;
+                rappeur.soundcloud = soundcloud;
+                rappeur.genre = genre;
+            } else {
+                // Ajout
+                const newId = Math.max(...rappeurs.map(r => r.id), 0) + 1;
+                rappeurs.push({
+                    id: newId,
+                    nom: nom,
+                    region: region,
+                    bio: bio,
+                    image: image,
+                    genre: genre,
+                    soundcloud: soundcloud,
+                    buzz: 50,
+                    videos: []
+                });
+            }
+
+            sauvegarderDonnees();
+            afficherAdminArtistes();
+            afficherArtistes();
+            afficherBuzz();
+            closeArtistModal();
+            showToast(id ? 'Artiste modifié' : 'Artiste ajouté');
+        }
+
+        function closeArtistModal() {
+            document.getElementById('artistEditModal').classList.remove('active');
+        }
+
+        function deleteArtist(artistId) {
+            if (confirm('Supprimer cet artiste et tous ses clips ?')) {
+                rappeurs = rappeurs.filter(r => r.id !== artistId);
+                sauvegarderDonnees();
+                afficherAdminArtistes();
+                afficherAdminVideos();
+                afficherArtistes();
+                afficherVideos();
+                afficherBuzz();
+                showToast('Artiste supprimé');
+            }
+        }
+
+        // ==================== GESTION DES CLIPS ====================
         function afficherAdminVideos() {
             const list = document.getElementById('adminAllVideosList');
             list.innerHTML = '';
@@ -1574,12 +1832,14 @@
         }
 
         function openAddVideoModal(artistId) {
-            document.getElementById('currentArtistId').value = artistId;
-            document.getElementById('currentVideoId').value = '';
-            document.getElementById('videoTitle').value = '';
-            document.getElementById('videoUrl').value = '';
+            const modal = document.getElementById('videoEditModal');
+            document.getElementById('videoModalTitle').textContent = 'Ajouter un clip';
+            document.getElementById('editVideoArtistId').value = artistId || '';
+            document.getElementById('editVideoId').value = '';
+            document.getElementById('editVideoTitre').value = '';
+            document.getElementById('editVideoUrl').value = '';
             
-            const select = document.getElementById('videoArtistSelect');
+            const select = document.getElementById('editVideoArtistSelect');
             select.innerHTML = '';
             rappeurs.forEach(r => {
                 const option = document.createElement('option');
@@ -1589,20 +1849,21 @@
                 select.appendChild(option);
             });
             
-            document.getElementById('videoModalTitle').textContent = 'Ajouter un clip';
-            document.getElementById('videoModal').classList.add('active');
+            modal.classList.add('active');
         }
 
         function editVideo(artistId, videoId) {
             const rappeur = rappeurs.find(r => r.id === artistId);
             const video = rappeur.videos.find(v => v.id === videoId);
             
-            document.getElementById('currentArtistId').value = artistId;
-            document.getElementById('currentVideoId').value = videoId;
-            document.getElementById('videoTitle').value = video.titre;
-            document.getElementById('videoUrl').value = `https://youtu.be/${video.url}`;
+            const modal = document.getElementById('videoEditModal');
+            document.getElementById('videoModalTitle').textContent = 'Modifier le clip';
+            document.getElementById('editVideoArtistId').value = artistId;
+            document.getElementById('editVideoId').value = videoId;
+            document.getElementById('editVideoTitre').value = video.titre;
+            document.getElementById('editVideoUrl').value = `https://youtu.be/${video.url}`;
             
-            const select = document.getElementById('videoArtistSelect');
+            const select = document.getElementById('editVideoArtistSelect');
             select.innerHTML = '';
             rappeurs.forEach(r => {
                 const option = document.createElement('option');
@@ -1612,28 +1873,25 @@
                 select.appendChild(option);
             });
             
-            document.getElementById('videoModalTitle').textContent = 'Modifier le clip';
-            document.getElementById('videoModal').classList.add('active');
+            modal.classList.add('active');
         }
 
         function saveVideo() {
-            const artistId = parseInt(document.getElementById('currentArtistId').value);
-            const videoId = document.getElementById('currentVideoId').value;
-            const titre = document.getElementById('videoTitle').value;
-            const urlInput = document.getElementById('videoUrl').value;
-            const newArtistId = parseInt(document.getElementById('videoArtistSelect').value);
+            const artistId = parseInt(document.getElementById('editVideoArtistId').value);
+            const videoId = document.getElementById('editVideoId').value;
+            const titre = document.getElementById('editVideoTitre').value;
+            const urlInput = document.getElementById('editVideoUrl').value;
+            const newArtistId = parseInt(document.getElementById('editVideoArtistSelect').value);
 
             let videoId_youtube = urlInput;
             if (urlInput.includes('youtu.be/')) {
                 videoId_youtube = urlInput.split('youtu.be/')[1].split('?')[0];
             } else if (urlInput.includes('v=')) {
                 videoId_youtube = urlInput.split('v=')[1].split('&')[0];
-            } else if (urlInput.includes('youtube.com/embed/')) {
-                videoId_youtube = urlInput.split('embed/')[1].split('?')[0];
             }
 
             if (!titre || !videoId_youtube) {
-                alert('Veuillez remplir tous les champs');
+                showToast('Veuillez remplir tous les champs');
                 return;
             }
 
@@ -1673,7 +1931,6 @@
             afficherAdminVideos();
             afficherArtistes();
             afficherVideos();
-            updateStats();
             showToast('Clip enregistré !');
         }
 
@@ -1686,79 +1943,95 @@
                 afficherAdminVideos();
                 afficherArtistes();
                 afficherVideos();
-                updateStats();
                 showToast('Clip supprimé');
             }
         }
 
-        function deleteArtist(artistId) {
-            if (confirm('Supprimer cet artiste et tous ses clips ?')) {
-                rappeurs = rappeurs.filter(r => r.id !== artistId);
-                sauvegarderDonnees();
-                afficherAdminArtistes();
-                afficherAdminVideos();
-                afficherArtistes();
-                afficherVideos();
-                afficherBuzz();
-                updateStats();
-                showToast('Artiste supprimé');
+        function closeVideoModal() {
+            document.getElementById('videoEditModal').classList.remove('active');
+        }
+
+        // ==================== PARAMÈTRES ====================
+        function changeAdminCode() {
+            const newCode = document.getElementById('newAdminCode').value;
+            if (newCode && newCode.length === 4) {
+                ADMIN_CODE = newCode;
+                localStorage.setItem('adminCode', newCode);
+                showToast('Code admin changé !');
+            } else {
+                showToast('Le code doit faire 4 chiffres');
             }
         }
 
-        function editArtist(artistId) {
-            const rappeur = rappeurs.find(r => r.id === artistId);
-            const nouveauNom = prompt('Nouveau nom:', rappeur.nom);
-            if (nouveauNom) {
-                rappeur.nom = nouveauNom;
-                sauvegarderDonnees();
-                afficherAdminArtistes();
-                afficherArtistes();
-                afficherBuzz();
-                showToast('Artiste modifié');
+        function changeSiteTitle() {
+            const newTitle = document.getElementById('siteTitle').value;
+            if (newTitle) {
+                SITE_TITLE = newTitle;
+                localStorage.setItem('siteTitle', newTitle);
+                document.getElementById('mainTitle').textContent = newTitle;
+                showToast('Titre mis à jour');
             }
         }
 
-        function ajouterNouvelArtiste() {
-            const nom = prompt('Nom du nouvel artiste:');
-            if (nom) {
-                const maxId = rappeurs.length > 0 ? Math.max(...rappeurs.map(r => r.id)) : 0;
-                const newId = maxId + 1;
-                rappeurs.push({
-                    id: newId,
-                    nom: nom,
-                    region: "À préciser",
-                    bio: "Nouvel artiste à découvrir",
-                    image: "https://via.placeholder.com/400x400?text=" + encodeURIComponent(nom),
-                    genre: "Rap",
-                    buzz: 50,
-                    videos: []
+        function changeSiteSlogan() {
+            const newSlogan = document.getElementById('siteSlogan').value;
+            if (newSlogan) {
+                SITE_SLOGAN = newSlogan;
+                localStorage.setItem('siteSlogan', newSlogan);
+                document.getElementById('mainSlogan').textContent = newSlogan;
+                showToast('Slogan mis à jour');
+            }
+        }
+
+        function resetAllLikes() {
+            if (confirm('Réinitialiser tous les likes ?')) {
+                rappeurs.forEach(rappeur => {
+                    rappeur.videos.forEach(video => {
+                        video.likes = 0;
+                    });
                 });
                 sauvegarderDonnees();
-                afficherAdminArtistes();
-                afficherArtistes();
-                afficherBuzz();
-                updateStats();
-                showToast('Artiste ajouté');
+                afficherVideos();
+                showToast('Tous les likes ont été réinitialisés');
             }
         }
 
-        function closeVideoModal() {
-            document.getElementById('videoModal').classList.remove('active');
+        function exportData() {
+            const dataStr = JSON.stringify(rappeurs, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            const exportFileDefaultName = 'rap-emergent-data.json';
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            showToast('Données exportées');
         }
 
-        // ==================== STATISTIQUES ====================
-        function updateStats() {
-            const totalArtistes = rappeurs.length;
-            const totalClips = rappeurs.reduce((acc, r) => acc + r.videos.length, 0);
-            const totalLikes = rappeurs.reduce((acc, r) => acc + r.videos.reduce((sum, v) => sum + v.likes, 0), 0);
-            
-            document.getElementById('statArtistes').textContent = totalArtistes;
-            document.getElementById('statClips').textContent = totalClips;
-            document.getElementById('statLikes').textContent = totalLikes.toLocaleString();
-            
-            document.getElementById('publicStatArtistes').textContent = totalArtistes;
-            document.getElementById('publicStatClips').textContent = totalClips;
-            document.getElementById('publicStatLikes').textContent = totalLikes.toLocaleString();
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        rappeurs = data;
+                        sauvegarderDonnees();
+                        afficherAdminArtistes();
+                        afficherAdminVideos();
+                        afficherArtistes();
+                        afficherVideos();
+                        afficherBuzz();
+                        showToast('Données importées');
+                    } catch (error) {
+                        showToast('Erreur lors de l\'import');
+                    }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
         }
 
         // ==================== TOAST ====================
@@ -1773,9 +2046,9 @@
         document.getElementById('addArtistForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const maxId = rappeurs.length > 0 ? Math.max(...rappeurs.map(r => r.id)) : 0;
+            const newId = Math.max(...rappeurs.map(r => r.id), 0) + 1;
             const nouveauRappeur = {
-                id: maxId + 1,
+                id: newId,
                 nom: document.getElementById('artistName').value,
                 region: document.getElementById('artistRegion').value,
                 bio: document.getElementById('artistBio').value,
@@ -1792,10 +2065,9 @@
             afficherArtistes();
             afficherBuzz();
             afficherVideos();
-            updateStats();
             
             this.reset();
-            showToast(`${nouveauRappeur.nom} a été ajouté !`);
+            showToast(`${nouveauRappeur.nom} a été proposé !`);
         });
 
         // Smooth scroll
