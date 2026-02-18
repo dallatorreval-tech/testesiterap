@@ -20,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* Effet de particules */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -29,7 +28,6 @@
             background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
         }
 
-        /* Header avec vibe underground */
         .header {
             height: 100vh;
             position: relative;
@@ -145,7 +143,6 @@
             100% { opacity: 0; transform: rotate(45deg) translate(20px, 20px); }
         }
 
-        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -202,7 +199,6 @@
             width: 100%;
         }
 
-        /* Container */
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -211,7 +207,6 @@
             z-index: 1;
         }
 
-        /* Section découverte */
         .discover-section {
             margin-bottom: 5rem;
         }
@@ -246,7 +241,6 @@
             font-weight: 600;
         }
 
-        /* Filtres */
         .filters {
             display: flex;
             gap: 1rem;
@@ -271,7 +265,6 @@
             border-color: transparent;
         }
 
-        /* Grille des artistes émergents */
         .artists-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -385,7 +378,6 @@
             color: #000;
         }
 
-        /* Section vidéos (clips émergents) */
         .videos-section {
             background: linear-gradient(135deg, rgba(0,255,135,0.05) 0%, rgba(96,239,255,0.05) 100%);
             border-radius: 30px;
@@ -481,7 +473,6 @@
             margin-bottom: 0.8rem;
         }
 
-        /* Système de likes */
         .like-system {
             display: flex;
             align-items: center;
@@ -520,7 +511,6 @@
             color: #00ff87;
         }
 
-        /* Section buzz */
         .buzz-section {
             margin: 4rem 0;
         }
@@ -563,7 +553,6 @@
             font-size: 0.9rem;
         }
 
-        /* Formulaire d'ajout */
         .form-section {
             background: rgba(255,255,255,0.02);
             border-radius: 30px;
@@ -622,7 +611,6 @@
             box-shadow: 0 10px 30px rgba(0,255,135,0.3);
         }
 
-        /* MODAL DE CONNEXION ADMIN */
         .admin-login-modal {
             position: fixed;
             top: 0;
@@ -703,7 +691,6 @@
             display: block;
         }
 
-        /* Bouton Admin Flottant */
         .admin-float-btn {
             position: fixed;
             bottom: 30px;
@@ -733,7 +720,6 @@
             color: white;
         }
 
-        /* Modal Admin */
         .admin-modal {
             position: fixed;
             top: 0;
@@ -893,7 +879,6 @@
             background: rgba(0,255,135,0.1);
         }
 
-        /* Modal d'ajout de vidéo */
         .video-modal {
             position: fixed;
             top: 50%;
@@ -948,7 +933,6 @@
             color: #fff;
         }
 
-        /* Footer */
         .footer {
             background: #000;
             padding: 3rem;
@@ -979,7 +963,6 @@
             color: #00ff87;
         }
 
-        /* Toast */
         .toast {
             position: fixed;
             bottom: 100px;
@@ -998,7 +981,38 @@
             transform: translateX(0);
         }
 
-        /* Responsive */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0,255,135,0.3);
+            border-top-color: #00ff87;
+            border-radius: 50%;
+            animation: spin 1s infinite linear;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         @media (max-width: 1024px) {
             .header h1 { font-size: 3.5rem; }
             .buzz-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1015,6 +1029,11 @@
     </style>
 </head>
 <body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <div id="particles-js"></div>
 
     <!-- MODAL DE CONNEXION ADMIN -->
@@ -1238,10 +1257,12 @@
         </div>
     </footer>
 
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
     <script>
         // ==================== CONFIGURATION ====================
-        const ADMIN_CODE = "2024"; // CHANGE CE CODE PAR CELUI QUE TU VEUX
+        const ADMIN_CODE = "2024"; // Code admin (change-le si tu veux)
         
         // ==================== PARTICULES ====================
         particlesJS('particles-js', {
@@ -1259,59 +1280,88 @@
         // Navigation scroll
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
-        // ==================== BASE DE DONNÉES ====================
-        let rappeurs = [
-            {
-                id: 1,
-                nom: "Zamdane",
-                region: "Marseille",
-                bio: "Nouvelle voix de la drill marseillaise, textes sombres et authentiques.",
-                image: "https://images.bfmtv.com/sx3E5Q6Z7K8L9M0N1P2Q3R4S5T6U7V8W9X0Y1Z2/1920x1080/",
-                genre: "Drill",
-                soundcloud: "https://soundcloud.com/zamdane",
-                buzz: 85,
-                videos: [
-                    { id: 101, titre: "Zamdane - Cœur noir", url: "dQw4w9WgXcQ", likes: 2340 },
-                    { id: 102, titre: "Zamdane - Freestyle", url: "dQw4w9WgXcQ", likes: 1200 }
-                ]
-            },
-            {
-                id: 2,
-                nom: "So La Lune",
-                region: "Paris",
-                bio: "Mélancolique et percutant, le nouvel ovni de la scène parisienne.",
-                image: "https://images.rtl.fr/~/media/Images/2023/09/so-la-lune-62452.jpg",
-                genre: "Cloud rap",
-                soundcloud: "https://soundcloud.com/solalune",
-                buzz: 92,
-                videos: [
-                    { id: 201, titre: "So La Lune - Sentiments", url: "dQw4w9WgXcQ", likes: 1870 }
-                ]
-            },
-            {
-                id: 3,
-                nom: "Luv Resval",
-                region: "Bruxelles",
-                bio: "Univers singulier, entre rap et poésie sombre. Une des plumes les plus prometteuses.",
-                image: "https://images.lecho.be/6Q7H2G6WqQ6H2G6WqQ6H2G6WqQ=/1920x1080/",
-                genre: "Rap",
-                soundcloud: "https://soundcloud.com/luvresval",
-                buzz: 88,
-                videos: [
-                    { id: 301, titre: "Luv Resval - Lune noire", url: "dQw4w9WgXcQ", likes: 3150 },
-                    { id: 302, titre: "Luv Resval - Eclipse", url: "dQw4w9WgXcQ", likes: 2100 }
-                ]
+        // ==================== BASE DE DONNÉES LOCALE (localStorage) ====================
+        let rappeurs = [];
+
+        // Charger les données depuis localStorage
+        function chargerDonnees() {
+            const saved = localStorage.getItem('rappeurs');
+            if (saved) {
+                rappeurs = JSON.parse(saved);
+            } else {
+                // Données par défaut
+                rappeurs = [
+                    {
+                        id: 1,
+                        nom: "Zamdane",
+                        region: "Marseille",
+                        bio: "Nouvelle voix de la drill marseillaise, textes sombres et authentiques.",
+                        image: "https://images.bfmtv.com/sx3E5Q6Z7K8L9M0N1P2Q3R4S5T6U7V8W9X0Y1Z2/1920x1080/",
+                        genre: "Drill",
+                        soundcloud: "https://soundcloud.com/zamdane",
+                        buzz: 85,
+                        videos: [
+                            { id: 101, titre: "Zamdane - Cœur noir", url: "dQw4w9WgXcQ", likes: 2340 },
+                            { id: 102, titre: "Zamdane - Freestyle", url: "dQw4w9WgXcQ", likes: 1200 }
+                        ]
+                    },
+                    {
+                        id: 2,
+                        nom: "So La Lune",
+                        region: "Paris",
+                        bio: "Mélancolique et percutant, le nouvel ovni de la scène parisienne.",
+                        image: "https://images.rtl.fr/~/media/Images/2023/09/so-la-lune-62452.jpg",
+                        genre: "Cloud rap",
+                        soundcloud: "https://soundcloud.com/solalune",
+                        buzz: 92,
+                        videos: [
+                            { id: 201, titre: "So La Lune - Sentiments", url: "dQw4w9WgXcQ", likes: 1870 }
+                        ]
+                    },
+                    {
+                        id: 3,
+                        nom: "Luv Resval",
+                        region: "Bruxelles",
+                        bio: "Univers singulier, entre rap et poésie sombre. Une des plumes les plus prometteuses.",
+                        image: "https://images.lecho.be/6Q7H2G6WqQ6H2G6WqQ6H2G6WqQ=/1920x1080/",
+                        genre: "Rap",
+                        soundcloud: "https://soundcloud.com/luvresval",
+                        buzz: 88,
+                        videos: [
+                            { id: 301, titre: "Luv Resval - Lune noire", url: "dQw4w9WgXcQ", likes: 3150 },
+                            { id: 302, titre: "Luv Resval - Eclipse", url: "dQw4w9WgXcQ", likes: 2100 }
+                        ]
+                    }
+                ];
+                sauvegarderDonnees();
             }
-        ];
+            
+            // Mettre à jour l'affichage
+            afficherArtistes();
+            afficherBuzz();
+            afficherVideos();
+            updateStats();
+            
+            // Cacher le loader
+            document.getElementById('loader').classList.add('hidden');
+        }
 
+        // Sauvegarder dans localStorage
+        function sauvegarderDonnees() {
+            localStorage.setItem('rappeurs', JSON.stringify(rappeurs));
+        }
+
+        // ==================== VARIABLES ====================
         let genreActif = 'tout';
-        let adminMode = false;
 
-        // ==================== FONCTIONS D'AFFICHAGE PUBLIC ====================
+        // ==================== FONCTIONS D'AFFICHAGE ====================
         function afficherArtistes() {
             const grid = document.getElementById('artistsGrid');
             grid.innerHTML = '';
@@ -1408,6 +1458,7 @@
             event.target.textContent = `❤️ ${video.likes}`;
             event.target.classList.add('liked');
             
+            sauvegarderDonnees();
             updateStats();
             showToast(`+1 pour ${video.titre}`);
         }
@@ -1419,7 +1470,7 @@
             afficherArtistes();
         }
 
-        // ==================== FONCTIONS DE CONNEXION ADMIN ====================
+        // ==================== FONCTIONS ADMIN ====================
         function showLoginModal() {
             document.getElementById('adminLoginModal').classList.add('active');
             document.getElementById('adminCode').value = '';
@@ -1437,20 +1488,16 @@
         }
 
         function openAdminModal() {
-            adminMode = true;
             document.getElementById('adminModal').classList.add('active');
             document.getElementById('adminToggle').classList.add('active');
             afficherAdminArtistes();
-            updateStats();
         }
 
         function closeAdminModal() {
-            adminMode = false;
             document.getElementById('adminModal').classList.remove('active');
             document.getElementById('adminToggle').classList.remove('active');
         }
 
-        // ==================== FONCTIONS ADMIN ====================
         function switchAdminTab(tab) {
             document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
             event.target.classList.add('active');
@@ -1461,7 +1508,6 @@
             
             if (tab === 'artists') afficherAdminArtistes();
             if (tab === 'videos') afficherAdminVideos();
-            if (tab === 'stats') updateStats();
         }
 
         function afficherAdminArtistes() {
@@ -1582,6 +1628,8 @@
                 videoId_youtube = urlInput.split('youtu.be/')[1].split('?')[0];
             } else if (urlInput.includes('v=')) {
                 videoId_youtube = urlInput.split('v=')[1].split('&')[0];
+            } else if (urlInput.includes('youtube.com/embed/')) {
+                videoId_youtube = urlInput.split('embed/')[1].split('?')[0];
             }
 
             if (!titre || !videoId_youtube) {
@@ -1620,6 +1668,7 @@
             }
 
             closeVideoModal();
+            sauvegarderDonnees();
             afficherAdminArtistes();
             afficherAdminVideos();
             afficherArtistes();
@@ -1632,6 +1681,7 @@
             if (confirm('Supprimer ce clip ?')) {
                 const rappeur = rappeurs.find(r => r.id === artistId);
                 rappeur.videos = rappeur.videos.filter(v => v.id !== videoId);
+                sauvegarderDonnees();
                 afficherAdminArtistes();
                 afficherAdminVideos();
                 afficherArtistes();
@@ -1644,6 +1694,7 @@
         function deleteArtist(artistId) {
             if (confirm('Supprimer cet artiste et tous ses clips ?')) {
                 rappeurs = rappeurs.filter(r => r.id !== artistId);
+                sauvegarderDonnees();
                 afficherAdminArtistes();
                 afficherAdminVideos();
                 afficherArtistes();
@@ -1659,6 +1710,7 @@
             const nouveauNom = prompt('Nouveau nom:', rappeur.nom);
             if (nouveauNom) {
                 rappeur.nom = nouveauNom;
+                sauvegarderDonnees();
                 afficherAdminArtistes();
                 afficherArtistes();
                 afficherBuzz();
@@ -1669,17 +1721,19 @@
         function ajouterNouvelArtiste() {
             const nom = prompt('Nom du nouvel artiste:');
             if (nom) {
-                const newId = Math.max(...rappeurs.map(r => r.id), 0) + 1;
+                const maxId = rappeurs.length > 0 ? Math.max(...rappeurs.map(r => r.id)) : 0;
+                const newId = maxId + 1;
                 rappeurs.push({
                     id: newId,
                     nom: nom,
                     region: "À préciser",
                     bio: "Nouvel artiste à découvrir",
-                    image: "https://via.placeholder.com/400x400",
+                    image: "https://via.placeholder.com/400x400?text=" + encodeURIComponent(nom),
                     genre: "Rap",
                     buzz: 50,
                     videos: []
                 });
+                sauvegarderDonnees();
                 afficherAdminArtistes();
                 afficherArtistes();
                 afficherBuzz();
@@ -1719,8 +1773,9 @@
         document.getElementById('addArtistForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
+            const maxId = rappeurs.length > 0 ? Math.max(...rappeurs.map(r => r.id)) : 0;
             const nouveauRappeur = {
-                id: Math.max(...rappeurs.map(r => r.id), 0) + 1,
+                id: maxId + 1,
                 nom: document.getElementById('artistName').value,
                 region: document.getElementById('artistRegion').value,
                 bio: document.getElementById('artistBio').value,
@@ -1732,6 +1787,7 @@
             };
 
             rappeurs.push(nouveauRappeur);
+            sauvegarderDonnees();
             
             afficherArtistes();
             afficherBuzz();
@@ -1747,15 +1803,14 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
 
         // Initialisation
-        afficherArtistes();
-        afficherBuzz();
-        afficherVideos();
-        updateStats();
+        chargerDonnees();
     </script>
 </body>
 </html>
