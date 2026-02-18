@@ -622,6 +622,87 @@
             box-shadow: 0 10px 30px rgba(0,255,135,0.3);
         }
 
+        /* MODAL DE CONNEXION ADMIN */
+        .admin-login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 5000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .admin-login-modal.active {
+            display: flex;
+        }
+
+        .login-box {
+            background: #1a1a1a;
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid #00ff87;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            color: #00ff87;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .login-box input:focus {
+            outline: none;
+            border-color: #00ff87;
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, #00ff87, #60efff);
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,255,135,0.3);
+        }
+
+        .login-error {
+            color: #ff4444;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .login-error.show {
+            display: block;
+        }
+
         /* Bouton Admin Flottant */
         .admin-float-btn {
             position: fixed;
@@ -644,13 +725,12 @@
         }
 
         .admin-float-btn:hover {
-            transform: scale(1.1) rotate(90deg);
+            transform: scale(1.1);
         }
 
         .admin-float-btn.active {
             background: #ff4444;
             color: white;
-            transform: rotate(180deg);
         }
 
         /* Modal Admin */
@@ -662,7 +742,7 @@
             height: 100%;
             background: rgba(0,0,0,0.95);
             backdrop-filter: blur(10px);
-            z-index: 2000;
+            z-index: 4000;
             display: none;
             overflow-y: auto;
         }
@@ -823,7 +903,7 @@
             padding: 2rem;
             border-radius: 20px;
             border: 2px solid #00ff87;
-            z-index: 3000;
+            z-index: 6000;
             display: none;
             width: 90%;
             max-width: 500px;
@@ -911,7 +991,7 @@
             font-weight: 600;
             transform: translateX(400px);
             transition: transform 0.3s;
-            z-index: 4000;
+            z-index: 7000;
         }
 
         .toast.show {
@@ -937,15 +1017,25 @@
 <body>
     <div id="particles-js"></div>
 
+    <!-- MODAL DE CONNEXION ADMIN -->
+    <div class="admin-login-modal" id="adminLoginModal">
+        <div class="login-box">
+            <h2>🔐 ACCÈS ADMIN</h2>
+            <input type="password" id="adminCode" placeholder="Entrez le code" maxlength="4">
+            <button class="login-btn" onclick="checkAdminCode()">CONNEXION</button>
+            <div class="login-error" id="loginError">Code incorrect</div>
+        </div>
+    </div>
+
     <!-- Bouton Admin Flottant -->
-    <button class="admin-float-btn" id="adminToggle" onclick="toggleAdmin()">⚙️</button>
+    <button class="admin-float-btn" id="adminToggle" onclick="showLoginModal()">⚙️</button>
 
     <!-- Modal Admin Principal -->
     <div class="admin-modal" id="adminModal">
         <div class="admin-modal-content">
             <div class="admin-modal-header">
                 <h2>⚡ PANEL ADMINISTRATEUR</h2>
-                <button class="close-admin" onclick="toggleAdmin()">×</button>
+                <button class="close-admin" onclick="closeAdminModal()">×</button>
             </div>
 
             <div class="admin-tabs">
@@ -1150,7 +1240,10 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Particules
+        // ==================== CONFIGURATION ====================
+        const ADMIN_CODE = "2024"; // CHANGE CE CODE PAR CELUI QUE TU VEUX
+        
+        // ==================== PARTICULES ====================
         particlesJS('particles-js', {
             particles: {
                 number: { value: 60, density: { enable: true, value_area: 800 } },
@@ -1326,25 +1419,38 @@
             afficherArtistes();
         }
 
-        // ==================== FONCTIONS ADMIN ====================
-        function toggleAdmin() {
-            adminMode = !adminMode;
-            const modal = document.getElementById('adminModal');
-            const btn = document.getElementById('adminToggle');
-            
-            if (adminMode) {
-                modal.classList.add('active');
-                btn.classList.add('active');
-                btn.textContent = '✕';
-                afficherAdminArtistes();
-                updateStats();
+        // ==================== FONCTIONS DE CONNEXION ADMIN ====================
+        function showLoginModal() {
+            document.getElementById('adminLoginModal').classList.add('active');
+            document.getElementById('adminCode').value = '';
+            document.getElementById('loginError').classList.remove('show');
+        }
+
+        function checkAdminCode() {
+            const code = document.getElementById('adminCode').value;
+            if (code === ADMIN_CODE) {
+                document.getElementById('adminLoginModal').classList.remove('active');
+                openAdminModal();
             } else {
-                modal.classList.remove('active');
-                btn.classList.remove('active');
-                btn.textContent = '⚙️';
+                document.getElementById('loginError').classList.add('show');
             }
         }
 
+        function openAdminModal() {
+            adminMode = true;
+            document.getElementById('adminModal').classList.add('active');
+            document.getElementById('adminToggle').classList.add('active');
+            afficherAdminArtistes();
+            updateStats();
+        }
+
+        function closeAdminModal() {
+            adminMode = false;
+            document.getElementById('adminModal').classList.remove('active');
+            document.getElementById('adminToggle').classList.remove('active');
+        }
+
+        // ==================== FONCTIONS ADMIN ====================
         function switchAdminTab(tab) {
             document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
             event.target.classList.add('active');
@@ -1471,7 +1577,6 @@
             const urlInput = document.getElementById('videoUrl').value;
             const newArtistId = parseInt(document.getElementById('videoArtistSelect').value);
 
-            // Extraire l'ID YouTube
             let videoId_youtube = urlInput;
             if (urlInput.includes('youtu.be/')) {
                 videoId_youtube = urlInput.split('youtu.be/')[1].split('?')[0];
@@ -1484,7 +1589,6 @@
                 return;
             }
 
-            // Si on change d'artiste
             if (newArtistId !== artistId && videoId) {
                 const oldRappeur = rappeurs.find(r => r.id === artistId);
                 const video = oldRappeur.videos.find(v => v.id == videoId);
@@ -1498,14 +1602,12 @@
                     likes: video.likes || 0
                 });
             }
-            // Modification
             else if (videoId) {
                 const rappeur = rappeurs.find(r => r.id === artistId);
                 const video = rappeur.videos.find(v => v.id == videoId);
                 video.titre = titre;
                 video.url = videoId_youtube;
             }
-            // Ajout
             else {
                 const rappeur = rappeurs.find(r => r.id === newArtistId);
                 const newId = Date.now();
